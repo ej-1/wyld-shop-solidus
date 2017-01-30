@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+<title><%= title %></title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<%== meta_data_tags %>
+<%= canonical_tag(current_store.url) %>
+<%= favicon_link_tag 'favicon.ico' %>
+<%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+<%= csrf_meta_tags %>
+<%= javascript_include_tag 'spree/frontend/all' %>
+
+<!-- load cubeportfolio css file - TEMPLATE -->
+<link rel="stylesheet" href="cubeportfolio/css/cubeportfolio.min.css">
+ 
+<!-- load latest jquery from google resources - TEMPLATE -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 
+<!-- load cubeportfolio jQuery plugin - TEMPLATE -->
+<script type="text/javascript" src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+jQuery(document).ready( function() {
+     jQuery('#grid-container').cubeportfolio({
+        // options
+     });
+});
+</script>
+
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+<![endif]-->
+<%= yield :head %>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neuer - Creative Portfolio Template</title>
+    <meta name="description" content="Neuer is a responsive portfolio template for creative people.">
+    <meta name="author" content="ThemeBang">
+    <meta name="designer" content="ThemeBang">
+    <meta name="reply-to" content="themebang@gmail.com">
+    <meta name="copyright" content="(c) 2017 ThemeBang - www.themebang.com">
+    <meta name="robots" content="index, follow">
+    <!--Verifitication-->
+    <meta name="google-site-verification" content="">
+    <meta name="alexaVerifyID" content="">
+    <meta name="yandex-verification" content="">
+    <meta name="msvalidate.01" content="">
+    <!-- / Verifitication-->
+    <link rel="shortcut icon" href="contents/images/icons/favicon.png">
+    <link rel="canonical" href="http://www.domainname.com/">
+    <!-- CSS and JavaScripts-->
+  	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/e9965a82bb.js"></script>
+</head>
