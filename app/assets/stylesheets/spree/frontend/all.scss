@@ -16,6 +16,53 @@
 
 @charset "utf-8";
 
+
+/* CUSTOMIZATION OF SOLIDUS/SPREE CSS */
+
+/*------------------------------------------------------------------*/
+.taxons-list {
+  list-style-type: none;
+  padding: 10px 15px;
+}
+
+.price {
+  /* Elements where copied from here this Neuer template class: .cbp-l-grid-projects-desc  */
+  height: 34px !important;
+  color: #1f1f1f !important;
+  font:400 16px/18px "Open Sans Condensed",sans-serif !important;
+  color:#444;
+  margin-top:5px
+}
+
+.info {
+  /* Elements where copied from here this Neuer template class: .cbp-l-grid-projects-title  */
+  height: 34px !important;
+  color: #1f1f1f !important;
+  font:700 16px/21px "Open Sans Condensed",sans-serif;
+  color:#474747;
+  margin-top:15px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@media only screen and (max-width:480px) {
+  .price {
+    /* Elements where copied from here this Neuer template class: .cbp-l-grid-projects-desc  */ 
+    margin-top:3px;
+  }
+
+  .info {
+    /* Elements where copied from here this Neuer template class: .cbp-l-grid-projects-desc  */ 
+    margin-top:12px
+  }
+
+}
+
+/*------------------------------------------------------------------*/
+
+
+
 /* Bootstrap customize and private css  */
 
 /*------------------------------------------------------------------
@@ -32,6 +79,8 @@
 /*------------------------------------------------------------------
 [1. Html / Body]
 */
+
+.vimeo {display:block; width:100%; height:400px; margin:0 auto;}
 
 html {
     position: relative;

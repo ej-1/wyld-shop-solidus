@@ -1,0 +1,81 @@
+<!--Mobile Menu-->
+<div class="visible-xs">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div id="BtnMobilMenu" class="navbar-header text-center">
+          <img data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" src="assets/logo.png" alt="img2"/>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav js-filters-juicy-projects">
+            <li class="cbp-singlePage list-group-item text-center hvr-underline-from-center text-uppercase"><a href="about-me.html" class="cbp-singlePage" data-cbp-singlePage="myCustomSinglePage1">About Me</a></li>
+            <li class="cbp-singlePage list-group-item text-center hvr-underline-from-center text-uppercase"><a href="typography.html" class="cbp-singlePage" data-cbp-singlePage="myCustomSinglePage2">Typography</a></li>
+            <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+            <nav id="taxonomies" class="sidebar-item" data-hook>
+              <% @taxonomies.each do |taxonomy| %>
+
+                <% cache [I18n.locale, taxonomy, max_level] do %>
+
+                  <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase">
+                    <%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %>
+                  </div>
+                  <!--<h6 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h6>-->
+                  
+                  <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
+                <% end %>
+              <% end %>
+            </nav>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+<!-- /Mobile Menu-->
+
+<!--Menu-->
+<div class="hidden-xs menu">
+  <div class="list-group cbp-l-filters-button js-filters-juicy-projects">
+      <div data-filter="*" class="cbp-filter-item list-group-item logo">
+          <img src="assets/logo.png" alt="img"/>
+      </div>
+      <a href="about-me.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage1">About Me</a>
+      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Typography</a>
+      <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+      <nav id="taxonomies" class="sidebar-item" data-hook>
+        <% @taxonomies.each do |taxonomy| %>
+
+          <% cache [I18n.locale, taxonomy, max_level] do %>
+
+            <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase">
+              <%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %>
+            </div>
+            <!--<h6 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h6>-->
+            
+            <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
+          <% end %>
+        <% end %>
+      </nav>
+      <!--Contact-->
+      <div class="list-group-item">
+          <address>
+              <strong>Company, Inc.</strong><br>
+              1234 Lorem Street, 100<br>
+              Lorem Ipsum City, 10100<br>
+              <abbr title="Phone">P:</abbr> (123) 456-7890
+              <br /><br />
+              <a href="#map" data-toggle="modal"><i class="glyphicon glyphicon-map-marker"></i></a>
+          </address>
+          <address>
+              <strong>Your Name</strong><br>
+              <a href="mailto:#">your.name@email.com</a>
+          </address>
+      </div>
+      <!--/Contact-->
+  </div>
+</div>
+<!-- /Menu-->
