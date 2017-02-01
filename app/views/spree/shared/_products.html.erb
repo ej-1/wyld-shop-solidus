@@ -32,7 +32,7 @@
 				  <!-- <ul id="products" class="inline product-listing" data-hook> -->
 				    <% products.each do |product| %>
 				      <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
-					      <div id="product_<%= product.id %>" class="cbp-item movie" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product"><!-- "cbp-item web-design" this was the original class names in the Neuer template. There was also two occurences of "cbp-item web-design"  - 2x web-design, 2x movies, 2x logos, 1x graphic, 1x identity -->
+					      <div id="product_<%= product.id %>" class="cbp-item col-md-3" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product"><!-- "cbp-item web-design" this was the original class names in the Neuer template. There was also two occurences of "cbp-item web-design"  - 2x web-design, 2x movies, 2x logos, 1x graphic, 1x identity -->
 		        			<% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
 					          <div class="cbp-item-wrap">
 					              <div class="cbp-caption">
