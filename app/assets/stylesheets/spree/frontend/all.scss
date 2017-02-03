@@ -34,6 +34,12 @@
   margin-top:5px
 }
 
+
+#product-properties {
+  border: none;
+  padding: 0px;
+}
+
 .info {
   /* Elements where copied from here this Neuer template class: .cbp-l-grid-projects-title  */
   height: 34px !important;
@@ -44,6 +50,20 @@
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+}
+
+.portfolio-content {
+  overflow-x: hidden; /* Fix for area where video and buy buttons are on product page. Used to have a scrollbar appear for some reason.  */
+}
+
+
+
+@media only screen and (min-width:1280px) {
+  .product-content {
+    width: 65%;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+  }
 }
 
 @media only screen and (max-width:480px) {
@@ -57,11 +77,48 @@
     margin-top:12px
   }
 
+  .buy-buttons-container {
+
+  }
+
+  .btn-buy-online {
+    float: none;
+    padding: 10px 25px 10px 25px !important;
+    font-size: 18px;
+  }
+
+  .btn-try-instore {
+    float: none;
+    padding: 10px 25px 10px 25px !important;
+    font-size: 18px;
+  }
+
 }
+
+/* CREATED CLASSES */
 
 /*------------------------------------------------------------------*/
 
+.buy-buttons-container {
+  margin-top: 50px;
+  text-align: center;
+}
 
+.btn-buy-online {
+  float: none;
+  padding: 20px 50px 20px 50px;
+  font-size: 18px;
+}
+
+.btn-try-instore {
+  float: none;
+  padding: 20px 50px 20px 50px;
+  font-size: 18px;
+  left: 0;
+}
+
+
+/*------------------------------------------------------------------*/
 
 /* Bootstrap customize and private css  */
 

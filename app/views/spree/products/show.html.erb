@@ -1,52 +1,131 @@
+<div class="product-content"><!--Our custom class-->
+  <% cache [I18n.locale, current_pricing_options, @product] do %>
+    <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+      <% @body_id = 'product-details' %>
+      <div class="portfolio-content">
+          <!--Title and Subtitle-->
+          <!--<div class="cbp-l-project-title">Project One</div>
+          <div class="cbp-l-project-subtitle">by lorem ipsum</div>-->
+          <!--/Title and Subtitle-->
 
-<% cache [I18n.locale, current_pricing_options, @product] do %>
-  <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
-    <% @body_id = 'product-details' %>
+          <!--<div class="columns six alpha" data-hook="product_left_part">-->
+          <div class="" data-hook="product_left_part">
+            <div class="row" data-hook="product_left_part_wrap">
 
-    <div class="columns six alpha" data-hook="product_left_part">
-      <div class="row" data-hook="product_left_part_wrap">
+              <div id="product-images" data-hook="product_images">
+                <div id="main-image" data-hook>
+                  <%= render :partial => 'spree/products/image' %>
+                </div>
+                <!--<div id="thumbnails" data-hook>
+                  <%= render :partial => 'spree/products/thumbnails' %>
+                </div>-->
+              </div>
 
-        <div id="product-images" data-hook="product_images">
-          <div id="main-image" data-hook>
-            <%= render :partial => 'spree/products/image' %>
+              <!--product details WAS HERE-->
+
+              <div data-hook="promotions">
+                <%= render :partial => 'spree/products/promotions' %>
+              </div>
+
+            </div>
           </div>
-          <div id="thumbnails" data-hook>
-            <%= render :partial => 'spree/products/thumbnails' %>
+
+              <div class="buy-buttons-container">
+                <a href="#" target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-buy-online">BUY ONLINE</a>
+
+                <a href="#" target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-try-instore">TRY IN STORE</a>
+              </div>
+
+          <div class="columns ten omega" data-hook="product_right_part">
+            <div class="row" data-hook="product_right_part_wrap">
+
+              <div id="product-description" data-hook="product_description">
+
+
+                <!--<div id="cart-form" data-hook="cart_form">-->
+                  <!--<%= render :partial => 'spree/products/cart_form' %>-->
+                <!--</div>-->
+
+              </div>
+
+              <!--<%= render :partial => 'spree/products/taxons' %>-->
+
+            </div>
+
           </div>
-        </div>
 
-        <div data-hook="product_properties">
-          <%= render :partial => 'spree/products/properties' %>
-        </div>
 
-        <div data-hook="promotions">
-          <%= render :partial => 'spree/products/promotions' %>
-        </div>
-
+          <div class="cbp-l-project-container">
+              <!--Description-->
+              <div class="cbp-l-project-desc">
+                  <div class="cbp-l-project-desc-title">
+                      <span><%= @product.name %></span>
+                  </div>
+                  <div class="cbp-l-project-desc-text"><%= product_description(@product) rescue Spree.t(:product_has_no_description) %></div>
+              </div>
+              <!--/Description-->
+              <!--/Detail List-->
+              <div class="cbp-l-project-details">
+                  <div class="cbp-l-project-details-title">
+                      <span>Project Details</span>
+                  </div>
+                   <!-- List-->
+                    <div data-hook="product_properties">
+                      <%= render :partial => 'spree/products/properties' %>
+                    </div>
+                   <!--/List-->
+                  <a href="#" target="_blank" class="cbp-l-project-details-visit btn red uppercase">visit the site</a>
+              </div>
+              <!--/Detail List-->
+          </div>
+          <!--/Container-->
+          <!--Container 2-->
+          <!--<div class="cbp-l-project-container">
+              <div class="cbp-l-project-related">
+                  --Title--
+                  <div class="cbp-l-project-desc-title">
+                      <span>Related Projects</span>
+                  </div>
+                  --/Title--
+                  --Related List--
+                  <ul class="cbp-l-project-related-wrap">
+                      <li class="cbp-l-project-related-item">
+                          <a href="#" class="cbp-singlePage cbp-l-project-related-link" rel="nofollow">
+                                  <iframe class="vimeo"src="https://player.vimeo.com/video/201673190" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                              <div class="cbp-l-project-related-title">Project Title</div>
+                          </a>
+                      </li>
+                      <li class="cbp-l-project-related-item">
+                          <a href="#" class="cbp-singlePage cbp-l-project-related-link" rel="nofollow">
+                                  <iframe class="vimeo"src="https://player.vimeo.com/video/201673190" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                              <div class="cbp-l-project-related-title">Project Title</div>
+                          </a>
+                      </li>
+                      <li class="cbp-l-project-related-item">
+                          <a href="#" class="cbp-singlePage cbp-l-project-related-link" rel="nofollow">
+                                  <iframe class="vimeo"src="https://player.vimeo.com/video/201673190" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                              <div class="cbp-l-project-related-title">Project Title</div>
+                          </a>
+                      </li>
+                  </ul>
+                  --/Related List--
+              </div>
+          </div>-->
+          <!--/Container 2-->
+          <br>
+          <br>
+          <br> 
       </div>
+
+
+
+
+
+
+
+
+
+
     </div>
-
-    <div class="columns ten omega" data-hook="product_right_part">
-      <div class="row" data-hook="product_right_part_wrap">
-
-        <div id="product-description" data-hook="product_description">
-
-          <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
-
-          <div itemprop="description" data-hook="description">
-            <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
-          </div>
-
-          <div id="cart-form" data-hook="cart_form">
-            <%= render :partial => 'spree/products/cart_form' %>
-          </div>
-
-        </div>
-
-        <%= render :partial => 'spree/products/taxons' %>
-
-      </div>
-    </div>
-
-  </div>
-<% end %>
+  <% end %>
+</div>

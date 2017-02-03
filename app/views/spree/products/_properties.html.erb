@@ -1,15 +1,10 @@
 <% unless @product_properties.empty? %>  
-  <h6 class="product-section-title"><%= Spree.t('properties')%></h6>
-  <table id="product-properties" class="table-display" data-hook>
-    <tbody>
+  <!--<h6 class="product-section-title"><%= Spree.t('properties')%></h6>-->
+  <ul id="product-properties" class="table-display cbp-l-project-details-list" data-hook>
       <% @product_properties.each do |product_property| %>
         <% css_class = cycle('even', 'odd', :name => "properties") %>
-        <tr class="<%= css_class %>">
-          <td><strong><%= product_property.property.presentation %></strong></td>
-          <td><%= product_property.value %></td>
-        </tr>
+          <li><strong><%= product_property.property.presentation %></strong><%= product_property.value %></li>
       <% end %>
       <% reset_cycle('properties') %>
-    </tbody>
-  </table>
+  </ul>
 <% end %>
