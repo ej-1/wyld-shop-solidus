@@ -159,6 +159,13 @@ nav#top-nav-bar {  /* Override Neuer template class  */
   margin-bottom: 70px !important;
 }
 
+.buy-online-section {
+  display: none;
+}
+
+.buy-offline-section {
+  display: none;
+}
 
 @media only screen and (max-width:767px) { /* Override Neuer template class  */
   .hide-top-nav-bar-desktop { /* New class, but it hides a Solidus classs. */

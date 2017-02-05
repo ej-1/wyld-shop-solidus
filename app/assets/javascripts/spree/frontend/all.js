@@ -19,6 +19,24 @@ $( document ).ready(function() {
     console.log( "ready!" );
 
 
+$(".btn-buy-online").click(function(){
+    $(".buy-online-section").slideDown( "slow", function() {});
+    $(".buy-offline-section").slideUp( "slow", function() {});
+    $('html, body').animate({
+        scrollTop: $(".buy-online-section").offset().top
+    }, 250);
+});
+
+$(".btn-try-instore").click(function(){
+    $(".buy-online-section").slideUp( "slow", function() {});
+    $(".buy-offline-section").slideDown( "slow", function() {});
+    $('html, body').animate({
+        scrollTop: $(".buy-offline-section").offset().top
+    }, 250);
+});
+
+
+
 !function (a) {
     "use strict";
     /*Mobile menu selected to close menu*/
