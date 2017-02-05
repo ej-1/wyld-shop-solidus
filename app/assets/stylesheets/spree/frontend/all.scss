@@ -27,6 +27,11 @@ body {  /* Override Neuer template class  */
 
 body > .container {  /* Override Neuer template class  */
   padding: 60px 0px 200px 0px !important;  /* Fix for footer that floated above bottom and to the right  */
+  width: 100% !important; /* Fix for footer not covering the width of the page  */  /* Fix for footer that floated above bottom and to the right  */
+}
+
+nav#top-nav-bar {  /* Override Neuer template class  */
+  margin-right: 10px;  /* Fix for navbar being to far to right.  */
 }
 
 .taxons-list {
@@ -63,6 +68,7 @@ body > .container {  /* Override Neuer template class  */
 
 .portfolio-content {
   overflow-x: hidden; /* Fix for area where video and buy buttons are on product page. Used to have a scrollbar appear for some reason.  */
+  margin-top: 90px !important;/* Fix for footer not covering the width of the page  */
 }
 
 
@@ -76,15 +82,6 @@ body > .container {  /* Override Neuer template class  */
 }
 
 @media only screen and (max-width:480px) { /* Override Neuer template class  */
-  .container {
-    /* Fix for footer that floated above bottom and to the right  */
-    width: 100% !important;
-  }
-
-  body > .container {  /* Override Neuer template class  */
-    padding: 60px 0px 200px 0px !important;  /* Fix for footer that floated above bottom and to the right  */
-  }
-
   .price {
     /* Elements where copied from here this Neuer template class: .cbp-l-grid-projects-desc  */ 
     margin-top:3px;
@@ -135,10 +132,25 @@ body > .container {  /* Override Neuer template class  */
   left: 0;
 }
 
+@media only screen and (max-width:767px) { /* Override Neuer template class  */
+  .hide-top-nav-bar-desktop { /* New class, but it hides a Solidus classs. */
+    display: none;
+
+  .container {  /* Override Neuer template class  */
+    padding: 0px 0px 200px 0px !important;  /* Fix for footer that floated above bottom and to the right  */
+  }
+
+  .portfolio-content {
+    margin-top: 290px !important;/* Fix for footer not covering the width of the page  */
+  }
+
+  }
+
+}
 
 /*------------------------------------------------------------------*/
 
-/* Bootstrap customize and private css  */
+/* git commit -m "Fixed top nav bar so that search section is hidden on mobile and visible when clicking menu button on mobile. Adjusted the top"*/
 
 /*------------------------------------------------------------------
 [Table of contents]
@@ -785,7 +797,6 @@ a:focus {
     }
 
   .footer {
-    position: relative;
     bottom: -60px;
   }
 

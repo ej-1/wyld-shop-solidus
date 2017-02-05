@@ -77,7 +77,7 @@
     /* Note: Design for a width of 768px */
 
     @media only screen and (min-width: 768px) and (max-width: 959px) {
-        .container                                  { width: 768px; }
+        /* .container { width: 768px; }  */  /* Fix for footer not covering the width of the page  */  /* Fix for footer that floated above bottom and to the right  */
         .container .column,
         .container .columns                         { margin-left: 10px; margin-right: 10px;  }
         .column.alpha, .columns.alpha               { margin-left: 0; margin-right: 10px; }
@@ -130,7 +130,7 @@
     /* Note: Design for a width of 320px */
 
     @media only screen and (max-width: 767px) {
-        .container { width: 300px; }
+        /* .container { width: 300px; }  */  /* Fix for footer not covering the width of the page  */  /* Fix for footer that floated above bottom and to the right  */
         .container .columns,
         .container .column { margin: 0; }
 
@@ -180,7 +180,7 @@
     /* Note: Design for a width of 480px */
 
     @media only screen and (min-width: 480px) and (max-width: 767px) {
-        .container { width: 420px; }
+        /* .container { width: 420px; }  */  /* Fix for footer not covering the width of the page  */  /* Fix for footer that floated above bottom and to the right  */
         .container .columns,
         .container .column { margin: 0; }
 
