@@ -108,6 +108,18 @@ nav#top-nav-bar {  /* Override Neuer template class  */
     font-size: 18px;
   }
 
+  .btn-get-voucher {
+    padding: 10px 25px 10px 25px !important;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #31d864;
+  }
+
+  .voucher-description { 
+    margin-left: 50px;
+    width: 115px;
+  }
+
 }
 
 /* CREATED CLASSES */
@@ -131,6 +143,22 @@ nav#top-nav-bar {  /* Override Neuer template class  */
   font-size: 18px;
   left: 0;
 }
+
+.btn-get-voucher {
+  padding: 20px 50px 20px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #31d864;
+  color: #fff;
+  position: absolute;
+  margin-right: 60px !important;
+}
+
+.voucher-section {
+  margin-top: 20px !important;
+  margin-bottom: 70px !important;
+}
+
 
 @media only screen and (max-width:767px) { /* Override Neuer template class  */
   .hide-top-nav-bar-desktop { /* New class, but it hides a Solidus classs. */
