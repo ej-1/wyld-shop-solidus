@@ -121,7 +121,11 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-xs-4">
-                    <a href="#" target="_blank" class="btn-get-voucher">GET VOUCHER</a>
+                  <% if spree_current_user %>
+                    <h1>PUT VOUCHER CODE HERE</h1>
+                  <% else %>
+                    <a href="#" target="_blank" class="btn-get-voucher" data-toggle="modal" data-target="#myModal">GET VOUCHER</a>
+                  <% end %>
                 </div>
                 <div class="col-xs-6">
                     <div class="voucher-description">Get 10% off this item when buying online using our voucher.</div>
@@ -134,7 +138,11 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-xs-4">
-                    <a href="#" target="_blank" class="btn-get-voucher">GET VOUCHER</a>
+                  <% if spree_current_user %>
+                    <h1>PUT VOUCHER CODE HERE</h1>
+                  <% else %>
+                    <a href="#" target="_blank" class="btn-get-voucher" data-toggle="modal" data-target="#myModal">GET VOUCHER</a>
+                  <% end %>
                 </div>
                 <div class="col-xs-6">
                     <div class="voucher-description">Get 10% off this item with a voucher in one of the following stores.</div>
@@ -173,16 +181,50 @@
           </div>
           <!-- /.modal Google Maps-->
       </div>
-
-
-
-
-
-
-
-
-
-
+      <!-- Modal for login-->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!--<div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign in to get voucher</h4>
+            </div>-->
+            <div class="modal-body">
+                <% @body_id = 'login' %>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 <%= request.path == spree.login_path ? "" : "" %>">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <!--<h3 class="panel-title"><%= Spree.t(:login_as_existing) %></h3>-->
+                        <h2 class="panel-title">LOG IN TO GET VOUCHER</h3>
+                    </div>
+                      <div id="existing-customer" class="panel-body login" data-hook="login">
+                          <% if flash[:error] %>
+                            <div class="alert alert-danger"><%= flash[:error] %></div>
+                          <% end %>
+                          <% @product_url = request.fullpath %>
+                          <%= render :partial => 'spree/shared/login_for_modal', :locals => {:@product_url => @product_url.to_s} %>
+                          <div class="text-center">
+                            <%= Spree.t(:or) %>
+                                <%= link_to Spree.t(:create_a_new_account), spree.signup_path %> |
+                                <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+                          </div>
+                          <div data-hook="login_extras"></div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <!-- Modal for login-->
     </div>
   <% end %>
 </div>
