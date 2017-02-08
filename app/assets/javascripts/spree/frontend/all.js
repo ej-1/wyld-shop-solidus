@@ -18,6 +18,15 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
+// WORKAROUND - If Chrome or Firefox and on mobile or small tablet
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+var screensize = $(window).width()
+if (screensize < 769) {
+  if (isChrome == true || isFirefox) {
+    document.getElementById("content").className = "columns eleven omega";
+  }
+}
 
 $(".btn-buy-online").click(function(){
     $(".buy-online-section").slideDown( "slow", function() {});
