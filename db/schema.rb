@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129120545) do
+ActiveRecord::Schema.define(version: 20170208145532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -801,11 +801,12 @@ ActiveRecord::Schema.define(version: 20170129120545) do
   create_table "spree_stock_items", force: :cascade do |t|
     t.integer  "stock_location_id"
     t.integer  "variant_id"
-    t.integer  "count_on_hand",     default: 0,     null: false
+    t.integer  "count_on_hand",                     default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "backorderable",     default: false
+    t.boolean  "backorderable",                     default: false
     t.datetime "deleted_at"
+    t.string   "product_url_for_third_party_store"
     t.index ["deleted_at"], name: "index_spree_stock_items_on_deleted_at", using: :btree
     t.index ["stock_location_id", "variant_id"], name: "stock_item_by_loc_and_var_id", using: :btree
     t.index ["stock_location_id"], name: "index_spree_stock_items_on_stock_location_id", using: :btree
@@ -834,6 +835,12 @@ ActiveRecord::Schema.define(version: 20170129120545) do
     t.boolean  "fulfillable",             default: true,  null: false
     t.string   "code"
     t.boolean  "check_stock_on_transfer", default: true
+    t.integer  "unique_store_id"
+    t.string   "url"
+    t.string   "email"
+    t.string   "map_coordinates"
+    t.boolean  "brick_and_mortar"
+    t.boolean  "online_store"
     t.index ["country_id"], name: "index_spree_stock_locations_on_country_id", using: :btree
     t.index ["state_id"], name: "index_spree_stock_locations_on_state_id", using: :btree
   end

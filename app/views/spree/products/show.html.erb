@@ -1,3 +1,5 @@
+
+
 <div class="product-content"><!--Our custom class-->
   <% cache [I18n.locale, current_pricing_options, @product] do %>
     <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
@@ -30,11 +32,14 @@
             </div>
           </div>
 
-              <div class="buy-buttons-container">
-                <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-buy-online">BUY ONLINE</a>
-
-                <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-try-instore">TRY IN STORE</a>
-              </div>
+          <div class="buy-buttons-container">
+            <% unless @online_stores.count == 0 %>
+              <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-buy-online">BUY ONLINE</a>
+            <% end %>
+            <% unless @brick_and_mortar_stores.count == 0 %>
+              <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-try-instore">TRY IN STORE</a>
+            <% end %>
+          </div>
 
           <div class="columns ten omega" data-hook="product_right_part">
             <div class="row" data-hook="product_right_part_wrap">
@@ -117,24 +122,62 @@
           <br>
           <!-- /.modal Google Maps -->
          <div class="buy-online-section">
-             <div class="row voucher-section">
-                <div class="col-md-2">
+            <% if @online_stores.count == 0 %>
+                <div class="row voucher-section">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-8">
+                  <h1>We're sorry. We couldn't find any stores with this item.</h1>
+                  <h1>Please try to buy in a brick and mortar instead.</h1>
+                  </div>
+                  <div class="col-md-2">
+                  </div>
                 </div>
-                <div class="col-xs-4">
-                  <% if spree_current_user %>
-                    <h1>PUT VOUCHER CODE HERE</h1>
-                  <% else %>
-                    <a href="#" target="_blank" class="btn-get-voucher" data-toggle="modal" data-target="#myModal">GET VOUCHER</a>
+            <% else %>
+                <div class="row voucher-section">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-xs-4">
+                    <% if spree_current_user %>
+                      <h1>PUT VOUCHER CODE HERE</h1>
+                    <% else %>
+                      <a href="#" target="_blank" class="btn-get-voucher" data-toggle="modal" data-target="#myModal">GET VOUCHER</a>
+                    <% end %>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="voucher-description">Get 10% off this item with a voucher in one of the following stores.</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <% @online_stores.each do |store, product_url_for_third_party_store| %>
+                    <div class="col-md-4">
+                    <!--<img src="http://seeklogo.com/images/F/FAKE_studio-logo-DDD8B4C844-seeklogo.com.gif" style="width:100%;height:100%;">
+                    <h5><strong><%= store.name %></strong></h5>-->
+                      <div class="cbp-l-project-details">
+                          <% if product_url_for_third_party_store.blank? == true %>
+                            <a href="<%= store.url %>" target="_blank" class="cbp-l-project-details-visit btn red uppercase"><%= store.url %></a>
+                          <% else %>
+                            <a href="<%= product_url_for_third_party_store %>" target="_blank" class="cbp-l-project-details-visit btn red uppercase"><%= product_url_for_third_party_store %></a>
+                          <% end %>
+                      </div>
+                    </div>
                   <% end %>
                 </div>
-                <div class="col-xs-6">
-                    <div class="voucher-description">Get 10% off this item when buying online using our voucher.</div>
-                </div>
-             </div>
+            <% end %>
           </div>
-
           <div class="buy-offline-section">
-             <div class="row voucher-section">
+            <% if @brick_and_mortar_stores.count == 0 %>
+              <div class="row voucher-section">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                <h1>We're sorry. We couldn't find any stores with this item.</h1>
+                <h1>Please try to buy online instead.</h1>
+                <div class="col-md-2">
+                </div>
+              </div>
+            <% else %>
+              <div class="row voucher-section">
                 <div class="col-md-2">
                 </div>
                 <div class="col-xs-4">
@@ -147,25 +190,37 @@
                 <div class="col-xs-6">
                     <div class="voucher-description">Get 10% off this item with a voucher in one of the following stores.</div>
                 </div>
-             </div>
+              </div>
+              <div class="row">
+                <% @brick_and_mortar_stores.each do |store, product_url_for_third_party_store| %>
+                  <div class="col-md-6">
+                      <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2014/03/Concept-Fashion-Store-King-George-16.jpg" alt="Mountain View" style="width:100%;height:100%;">
+                      <h5><strong><%= store.name %></strong></h5>
+                      <address>
+                        <%= store.address1 %>,
+                        <%= store.address2 %>
+                        <%= store.zipcode %>
+                        <%= store.city %>
+                        <br>
+                        <abbr title="Phone">P:</abbr> <%= store.phone %>
+                        <br>
+                        <abbr title="">Email:</abbr> <%= store.email %>
 
-             <div class="row">
-                <div class="col-md-6">
-                    <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2014/03/Concept-Fashion-Store-King-George-16.jpg" alt="Mountain View" style="width:100%;height:100%;">
-                    <h5><strong>Company, Inc.</strong></h5>
-                    <address>
-                        1234 Lorem Street, 100. Lorem Ipsum City, 10100.
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                    </address>
-                </div>
-                <div class="col-md-6">
-                    <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2014/03/Concept-Fashion-Store-King-George-16.jpg" alt="Mountain View" style="width:100%;height:100%;">
-                    <h5><strong>Company, Inc.</strong></h5>
-                    <address>
-                        1234 Lorem Street, 100. Lorem Ipsum City, 10100.
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                    </address>
-                </div>
+                        <!-- FIX BETTER SOLUTION HERE -->
+                        <!-- CURRRENT SOLUTION MIGHT BE QUERYING 
+                        THE DATABASE TO MANY TIMES -->
+                        <% if product_url_for_third_party_store.blank? == true %>
+                          <div class="cbp-l-project-details">
+                            <a href="<%= store.url %>" target="_blank" class="cbp-l-project-details-visit btn red uppercase"><%= store.url %></a>
+                          </div>
+                        <% else %>
+                          <div class="cbp-l-project-details">
+                            <a href="<%= product_url_for_third_party_store %>" target="_blank" class="cbp-l-project-details-visit btn red uppercase"><%= product_url_for_third_party_store %></a>
+                          </div>
+                        <% end %>
+                      </address>
+                  </div>
+                <% end %>
               </div>
               <div id="map" class="" tabindex="-1" role="dialog">
                   <div class="" role="document">
@@ -178,6 +233,7 @@
                       </div>
                   </div>
               </div>
+              <% end %>
           </div>
           <!-- /.modal Google Maps-->
       </div>
