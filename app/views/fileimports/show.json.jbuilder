@@ -1,0 +1,1 @@
+json.partial! "fileimports/fileimport", fileimport: @fileimport

@@ -1,0 +1,1 @@
+json.array! @fileimports, partial: 'fileimports/fileimport', as: :fileimport
