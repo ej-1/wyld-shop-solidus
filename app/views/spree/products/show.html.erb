@@ -37,7 +37,7 @@
               <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-buy-online">BUY ONLINE</a>
             <% end %>
             <% unless @brick_and_mortar_stores.count == 0 %>
-              <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-try-instore">TRY IN STORE</a>
+              <a target="_blank" class="cbp-l-project-details-visit btn-large red uppercase btn-try-instore" onclick="displayMap()">TRY IN STORE</a>
             <% end %>
           </div>
 
@@ -222,16 +222,19 @@
                   </div>
                 <% end %>
               </div>
-              <div id="map" class="" tabindex="-1" role="dialog">
-                  <div class="" role="document">
-                      <div class="">
-                          <div class="">
-                              <div id="map-canvas" style="width:100%; height:450px">
-                                  <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJLU7jZClu5kcR4PcOOO6p3I0&key=AIzaSyBad8Je938IWh7fiz3CeCzbChFrl6a81bo" height="450" style="border:0" allowfullscreen></iframe>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+              <div class="row">
+                <div class="col-md-12">
+                    <div id="map" class="" tabindex="-1" role="dialog">
+                        <div class="" role="document">
+                            <div class="">
+                                <div class="">
+                                    <div id="map-canvas" style="width:100%; height:450px; display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </div>
               <% end %>
           </div>
@@ -284,3 +287,77 @@
     </div>
   <% end %>
 </div>
+
+
+<!-- DO NOT INCLUDE JS LIB TO MAY TIMES - <script src="http://maps.googleapis.com/maps/api/js"></script> -->
+<!-- IMPROVE BY MOVING CODE TO APPROPRIATE JS FILES. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7CWMrcq0DUBI4qcn4lJPWXCY2bi8GN0w&libraries=places&callback=initAutocomplete" async defer></script>
+
+<script>
+  function displayMap() { // Render the hidden map. http://stackoverflow.com/questions/4064275/how-to-deal-with-google-map-inside-of-a-hidden-div-updated-picture
+              $(".buy-online-section").slideUp( "slow", function() {});
+              $(".buy-offline-section").slideDown( "slow", function() {});
+              $('html, body').animate({
+                  scrollTop: $(".buy-offline-section").offset().top
+              }, 250); 
+              document.getElementById('map-canvas').style.display="block";
+              initAutocomplete();
+          }
+
+  // This example requires the Places library. Include the libraries=places
+  // parameter when you first load the API. For example:
+  // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+  function initAutocomplete() {
+    var bounds = new google.maps.LatLngBounds();
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      center: {lat: 28.9, lng: 5.62},
+      zoom: 2,
+      mapTypeId: 'roadmap',
+      //styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#87b5db"},{"visibility":"on"}]}]
+    });
+    // Set initial markers from saved list items.
+    // http://stackoverflow.com/questions/15144691/google-maps-multiple-marker-from-extern-json
+
+    $.getJSON(window.location.pathname, function(json1) { // Gets JSON which is @markers variable in lists controller.
+        $.each(json1, function(key, data) {
+            var latLng = new google.maps.LatLng(data.lat, data.lng);
+            bounds.extend(latLng); // This line helps to set the boundary to nly include area with markers.
+            // Creating a marker and putting it on the map
+            sum_latLng = data.lat + data.lng
+            if (sum_latLng == 0) { // Check if long, lat is 0, 0. Then assumes that no adress was given for post by user and 
+                                   //skips to create marker.
+            } 
+              else
+            {
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    title: data.title,
+                });
+                var contentString = // Content for infowindows markers have.
+                    '<h5><strong>'+data.title+'</strong></h5>'+
+                      '<address class="map-marker-infobox-adress">'+
+                        data.store_address1+', '+
+                        data.store_zipcode+' '+
+                        data.store_city+
+                        '<br>'+
+                        '<abbr title="Phone">P:</abbr>'+data.store_phone+
+                        '<br>'+
+                        '<abbr title="">Email:</abbr>'+data.store_email+
+                      '</address>';
+                var infowindow = new google.maps.InfoWindow({ // Sets the content of infowindows.
+                  content: contentString
+                });
+                marker.addListener('click', function() { // Sets click listener for each post.
+                  infowindow.open(map, marker);
+                });
+            map.fitBounds(bounds); // This line helps to set the boundary to nly include area with markers.
+            //https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/
+          }
+
+        });
+    });
+
+  }
+// The code above creates a new map inside the <div> element with id="googleMap", using the parameters that are passed (mapProp).
+</script>

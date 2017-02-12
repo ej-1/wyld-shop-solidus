@@ -169,6 +169,10 @@ nav#top-nav-bar {  /* Override Neuer template class  */
   display: none;
 }
 
+.map-marker-infobox-adress {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 @media only screen and (max-width:767px) { /* Override Neuer template class  */
   .hide-top-nav-bar-desktop { /* New class, but it hides a Solidus classs. */
     display: none;

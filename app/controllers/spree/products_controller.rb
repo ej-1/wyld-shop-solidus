@@ -1,3 +1,4 @@
+require 'pry'
 module Spree
   class ProductsController < Spree::StoreController
     before_action :load_product, only: :show
@@ -46,6 +47,31 @@ module Spree
 
       @product_properties = @product.product_properties.includes(:property)
       @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
+
+      @markers = @brick_and_mortar_stores.map do |store, product_url_for_third_party_store|
+      #@markers = ListItem.where(list_id: params[:id]).all.map do |list_item| # Create hash of marker coordinates for list items.
+        adress = store.map_coordinates.split(",")
+         {
+
+
+           lat: adress[0],
+           lng: adress[1],
+           title: store.name,
+           store_url: store.url,
+           store_address1: store.address1,
+           store_address2: store.address2,
+           store_zipcode: store.zipcode,
+           store_city: store.city,
+           store_phone: store.phone,
+           store_email: store.email,
+           desc: "",
+           id: store.id
+         }
+      end
+      respond_to do |format|
+        format.html
+        format.json { render json: @markers }
+      end
     end
 
     private

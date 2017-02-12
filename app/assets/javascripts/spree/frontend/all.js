@@ -36,13 +36,14 @@ $(".btn-buy-online").click(function(){
     }, 250);
 });
 
-$(".btn-try-instore").click(function(){
-    $(".buy-online-section").slideUp( "slow", function() {});
-    $(".buy-offline-section").slideDown( "slow", function() {});
-    $('html, body').animate({
-        scrollTop: $(".buy-offline-section").offset().top
-    }, 250);
-});
+// Following block was moved to product page so it renders the map after beign hidden.
+//$(".btn-try-instore").click(function(){
+//    $(".buy-online-section").slideUp( "slow", function() {});
+//    $(".buy-offline-section").slideDown( "slow", function() {});
+//    $('html, body').animate({
+//        scrollTop: $(".buy-offline-section").offset().top
+//    }, 250); 
+//});
 
 
 
