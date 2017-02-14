@@ -1,6 +1,8 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'csv' # For CSV, Excel file import.
+require 'iconv' # For CSV, Excel file import.
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
