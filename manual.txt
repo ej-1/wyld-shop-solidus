@@ -1,0 +1,114 @@
+PRODUCT
+
+
+
+
+
+VARIANT
+The unique version of a product. 
+For example:  Ruby on Rails Baseball Jersey in XL is one variant and L is another variant. = 2 variants
+              SKU ROR-00010
+              Name  Ruby on Rails Baseball Jersey 
+              Color Green
+              Size  XL
+              Add to location
+                    
+              Ror baseball jersey green
+              SKU ROR-00009
+              Name  Ruby on Rails Baseball Jersey 
+              Color Green
+              Size  L
+
+              Same Jersey that comes in a Green version AND black version with both size each would be = 4 variants
+              (1)Jersey, Green, XL
+              (2)Jersey, Green, L
+              (3)Jersey, Red, XL
+              (4)Jersey, Red, L
+
+
+
+
+
+STOCK ITEM
+Is the variant per store_location ?????
+              (1)Jersey, Green, XL, NY Warehouse
+              (2)Jersey, Green, L, NY Warehouse
+              (3)Jersey, Green, XL, SF Store
+              (4)Jersey, Green, L, SF Store
+
+              (5)Jersey, Black, XL, NY Warehouse
+              (6)Jersey, Black, L, NY Warehouse
+              (7)Jersey, Black, XL, SF Store
+              (8)Jersey, Black, L, SF Store
+
+
+
+
+
+
+
+
+OPTION TYPES (options that the user can choose ???)
+  name = t-shirt-size (database field name ??? )		representation = Size (shown in GUI)
+
+  	OPTIONS VALUES
+    	name = Small		representation = S
+    	name = Medium		representation = M
+    	name = Large		representation = L
+
+      PRODUCT OPTION TYPES ()
+      connects the option_types that are relevant to a product
+
+      OPTION VALUES VARIANTS
+      connects the option_value and variant
+
+
+
+
+
+
+
+
+
+
+PROPERTY TYPES (Product details ???)
+  name = Brand			representation = Brand
+  name = Manufacturer		representation = Manufacturer
+
+	!!! ========= need to make sure no new property types are created ========= !!!!
+	
+
+
+
+
+
+
+
+__________________
+
+
+        Star wars t-shirt, black, 
+        CREATe option_type "color" UNLESS it exists
+        CREATe option_value "black" UNLESS it exists
+
+        
+        IF no variant exist with the product_id
+          THEN create variant
+        IF option_values_variants does not exist with the variant_id and option_value_id
+          THEN create variant
+          AND CREATE option_values_variants needs to connect variant_id and option_value_id
+
+
+        IF no variant exist with the product_id
+          THEN create variant
+
+        IF option_values_variants does not exist with the variant_id and option_value_id
+          THEN create variant
+          AND CREATE option_values_variants needs to connect variant_id and option_value_id
+
+        IF option_values_variants does not exist with the variant_id and option_value_id
+          THEN create variant
+
+        IF product_option_types does not exist with the product_id and option_type_id
+          THEN create variant
+          AND CREATE product_option_types needs to connect product_id and option_type_id

@@ -24,9 +24,11 @@
 
 <%= link_to 'New Fileimport', new_fileimport_path %>
 
-<h2>Import Products</h2>
+<h2>Import Excel file</h2>
 
 <%= form_tag import_fileimports_path, multipart: true do %>
+<%= select_tag "type_of_upload", "<option selected='selected'>Please select</option><option>Products + properties upload</option><option>Third party store product URL upload</option>".html_safe %>
+
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
