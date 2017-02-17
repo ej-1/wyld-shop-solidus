@@ -45,6 +45,9 @@ $(".btn-buy-online").click(function(){
 //    }, 250); 
 //});
 
+$(".taxonomy-name-drop").click(function(){ // Dropdowns for taxonomies
+  $(this).next(".taxons-list").slideToggle( "fast", function() {});
+});
 
 
 !function (a) {

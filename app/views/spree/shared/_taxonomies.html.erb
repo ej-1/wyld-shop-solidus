@@ -21,7 +21,7 @@
 
                 <% cache [I18n.locale, taxonomy, max_level] do %>
 
-                  <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase">
+                  <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase taxonomy-name-drop">
                     <%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %>
                   </div>
                   <!--<h6 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h6>-->
@@ -52,7 +52,7 @@
 
           <% cache [I18n.locale, taxonomy, max_level] do %>
 
-            <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase">
+            <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase taxonomy-name-drop">
               <%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %>
             </div>
             <!--<h6 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h6>-->
