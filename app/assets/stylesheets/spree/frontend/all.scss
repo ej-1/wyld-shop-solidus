@@ -26,7 +26,7 @@ body {  /* Override Neuer template class  */
 }
 
 body > .container {  /* Override Neuer template class  */
-  padding: 60px 0px 200px 0px !important;  /* Fix for footer that floated above bottom and to the right  */
+  padding: 0px 0px 200px 0px !important;  /* Fix for footer that floated above bottom and to the right  */
   width: 100% !important; /* Fix for footer not covering the width of the page  */  /* Fix for footer that floated above bottom and to the right  */
 }
 
@@ -69,9 +69,59 @@ nav#top-nav-bar {  /* Override Neuer template class  */
 
 .portfolio-content {
   overflow-x: hidden; /* Fix for area where video and buy buttons are on product page. Used to have a scrollbar appear for some reason.  */
-  margin-top: 90px !important;/* Fix for footer not covering the width of the page  */
+  margin-top: 65px !important;/* Fix for footer not covering the width of the page  */
 }
 
+.flash.notice { /* Changed so the screen wide flash notice does not disrupt the layout for non-admin users. */
+  background-color: #f4f4f4 !important;
+  color: #8dba53;
+}
+
+.flash.success { /* Changed so the screen wide flash notice does not disrupt the layout for non-admin users. */
+  background-color: #f4f4f4 !important;
+  color: #8dba53;
+}
+
+nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt the layout for non-admin users. */
+  border-bottom: 0px !important;
+}
+
+#logo{
+  position: absolute;
+}
+
+/* Extra small devices (portrait phones, less than 576px)  */
+@media (max-width: 575px) { 
+
+  #logo { 
+    display: none;
+  }
+
+}
+
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) and (max-width: 767px) { 
+
+  #logo { 
+    display: none;
+  }
+
+}
+
+/* Medium devices (tablets, 768px and up)  */
+@media (min-width: 768px) and (max-width: 991px) { 
+
+ }
+
+/* Large devices (desktops, 992px and up)  */
+@media (min-width: 992px) and (max-width: 1199px) { 
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+
+}
 
 
 @media only screen and (min-width:1280px) {
@@ -80,6 +130,7 @@ nav#top-nav-bar {  /* Override Neuer template class  */
     margin-left: 17.5%;
     margin-right: 17.5%;
   }
+
 }
 
 @media only screen and (max-width:480px) { /* Override Neuer template class  */
