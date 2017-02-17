@@ -1,4 +1,9 @@
 
+<% content_for :sidebar do %>
+  <div data-hook="homepage_sidebar_navigation">
+    <%= render :partial => 'spree/shared/taxonomies' %>
+  </div>
+<% end %>
 
 <div class="product-content"><!--Our custom class-->
   <% cache [I18n.locale, current_pricing_options, @product] do %>

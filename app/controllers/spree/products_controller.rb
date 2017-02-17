@@ -16,6 +16,7 @@ module Spree
     end
 
     def show
+      @taxonomies = Spree::Taxonomy.includes(root: :children)
       variant = Spree::Variant.find_by(product_id: @product.id)
       stock_items = Spree::StockItem.where("variant_id = #{variant.id} AND count_on_hand > 0") # Can e.g. be 1 red dress in store A and 0-2 red dresses in store B.
 
