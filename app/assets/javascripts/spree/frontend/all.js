@@ -49,6 +49,22 @@ $(".taxonomy-name-drop").click(function(){ // Dropdowns for taxonomies
   $(this).next(".taxons-list").slideToggle( "fast", function() {});
 });
 
+// Find all YouTube videos
+//var $allVideos = $("iframe[src^='//player.vimeo.com']").
+  var $allVideos = $('.vimeo');
+    //alert($allVideos)
+  // The element that is fluid width
+  fluidEl = $("body");
+  var box_width = $(".cbp-item-wrap").width() - 20;
+
+// Figure out and save aspect ratio for each video
+$allVideos.each(function() {
+    var height = box_width * 1.7777777
+    $(this).width(box_width);
+    $(this).height(height);
+    $(".cbp-item-wrap").height(height + 100);
+    $(".cbp-item-wrap").width(box_width);
+});
 
 !function (a) {
     "use strict";
