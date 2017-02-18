@@ -69,6 +69,7 @@ nav#top-nav-bar {  /* Override Neuer template class  */
 
 .portfolio-content {
   overflow-x: hidden; /* Fix for area where video and buy buttons are on product page. Used to have a scrollbar appear for some reason.  */
+  margin-top: 0px !important;/* Fix for footer not covering the width of the page  */
 }
 
 .flash.notice { /* Changed so the screen wide flash notice does not disrupt the layout for non-admin users. */
