@@ -50,7 +50,7 @@ $(".taxonomy-name-drop").click(function(){ // Dropdowns for taxonomies
   var box_width = $(".cbp-item-wrap").width() - 50;
   var height = box_width * 1.7777777
 
-if ($( window ).width() > 1280) {
+if ($( window ).width() > 1857) {
   // Figure out and save aspect ratio for each video
   $allVideos.each(function() {
       var box_width = $(".cbp-item-wrap").width() - 100;
