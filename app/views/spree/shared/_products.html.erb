@@ -36,11 +36,11 @@
 		        			<% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
 					          <div class="cbp-item-wrap">
 					              <div class="cbp-caption">
-					                  <div class="cbp-caption-defaultWrap">
+					                  <div class="">
 					            					<!--<%= link_to image_tag(product.display_image.attachment(:small), itemprop: "image"), url, itemprop: 'url' %>-->
 					                      <iframe class="vimeo"src="<%= product.video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					                  </div>
-					                  <div class="cbp-caption-activeWrap">
+					                  <!--<div class="cbp-caption-activeWrap">
 					                      <div class="cbp-l-caption-alignCenter">
 					                          <div class="cbp-l-caption-body">
 					                              <div class="btn-group">
@@ -49,16 +49,16 @@
 					                              </div>
 					                          </div>
 					                      </div>
-					                  </div>
+					                  </div>-->
 					              </div>
 					              <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">
 						              	<%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %><!--SPREE-->
 					              </div>
-					              <div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center">
-									          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><!--SPREE-->
+					              <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center">
+									          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer"> SPREE
 									            <span class="price selling" itemprop="price"><%= display_price(product) %></span>
 									          </span>
-					              </div>
+					              </div>-->
 					          </div>
 	      					<% end %>
 					      </div>
