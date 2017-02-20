@@ -13,8 +13,6 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav js-filters-juicy-projects">
-            <li class="cbp-singlePage list-group-item text-center hvr-underline-from-center text-uppercase"><a href="about-me.html" class="cbp-singlePage" data-cbp-singlePage="myCustomSinglePage1">About Me</a></li>
-            <li class="cbp-singlePage list-group-item text-center hvr-underline-from-center text-uppercase"><a href="typography.html" class="cbp-singlePage" data-cbp-singlePage="myCustomSinglePage2">Typography</a></li>
             <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
             <nav id="taxonomies" class="sidebar-item" data-hook>
               <% @taxonomies.each do |taxonomy| %>
@@ -30,6 +28,32 @@
                 <% end %>
               <% end %>
             </nav>
+              <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase navbar-drop-button">
+                About
+              </div>
+                  <div class="navbar-dropdown-menu">
+                    <a href="/">How it works?</a>
+                  </div>
+                  <div class="navbar-dropdown-menu">
+                    <a href="/">Book a Videographer</a>
+                  </div>
+                  <div class="navbar-dropdown-menu">
+                    <a href="/">WYLD Events</a>
+                  </div>
+                  <div class="navbar-dropdown-menu">
+                    <a href="/">Join us as a label</a>
+                  </div>
+                  <div class="navbar-dropdown-menu">
+                    <a href="/">Join us as a store</a>
+                  </div>
+                  <div class="navbar-dropdown-menu">
+                    <a href="/">Team</a>
+                  </div>
+              <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">FAQ</a>
+              <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Terms & Conditions</a>
+              <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Privacy</a>
+             <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Careers</a>
+              <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Contact</a>
           </ul>
           <%= render :partial => 'spree/shared/mobile_search_nav_bar' %>
         </div>
@@ -44,8 +68,6 @@
       <!--<div data-filter="*" class="cbp-filter-item list-group-item logo">
           <img src="assets/logo.png" alt="img"/>
       </div>-->
-      <a href="about-me.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage1">About Me</a>
-      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Typography</a>
       <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
       <nav id="taxonomies" class="sidebar-item" data-hook>
         <% @taxonomies.each do |taxonomy| %>
@@ -60,20 +82,50 @@
             <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
           <% end %>
         <% end %>
+      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Stores</a>
+
+      <div data-filter="*" class="cbp-filter-item list-group-item hvr-underline-from-left text-uppercase navbar-drop-button">
+        About
+      </div>
+          <div class="navbar-dropdown-menu">
+            <a href="/">How it works?</a>
+          </div>
+          <div class="navbar-dropdown-menu">
+            <a href="/">Book a Videographer</a>
+          </div>
+          <div class="navbar-dropdown-menu">
+            <a href="/">WYLD Events</a>
+          </div>
+          <div class="navbar-dropdown-menu">
+            <a href="/">Join us as a label</a>
+          </div>
+          <div class="navbar-dropdown-menu">
+            <a href="/">Join us as a store</a>
+          </div>
+          <div class="navbar-dropdown-menu">
+            <a href="/">Team</a>
+          </div>
+
+      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">FAQ</a>
+      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Terms & Conditions</a>
+      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Privacy</a>
+     <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Careers</a>
+      <a href="typography.html" class="cbp-singlePage list-group-item hvr-underline-from-left text-uppercase" data-cbp-singlePage="myCustomSinglePage2">Contact</a>
       </nav>
       <!--Contact-->
       <div class="list-group-item">
           <address>
-              <strong>Company, Inc.</strong><br>
-              1234 Lorem Street, 100<br>
-              Lorem Ipsum City, 10100<br>
+              <strong>Wivern Digital Limited</strong><br>
+              developing Wyld.live<br>
+              UK Company Reg. Nr: 07557973<br>
+              Represented by Jerome Goerke<br>
               <abbr title="Phone">P:</abbr> (123) 456-7890
               <br /><br />
               <a href="#map" data-toggle="modal"><i class="glyphicon glyphicon-map-marker"></i></a>
           </address>
           <address>
-              <strong>Your Name</strong><br>
-              <a href="mailto:#">your.name@email.com</a>
+              <strong>Contact Us</strong><br>
+              <a href="mailto:#">wyld@info.com</a>
           </address>
       </div>
       <!--/Contact-->

@@ -41,6 +41,10 @@ $(".taxonomy-name-drop").click(function(){ // Dropdowns for taxonomies
   $(this).next(".taxons-list").slideToggle( "fast", function() {});
 });
 
+$(".navbar-drop-button").click(function(){ // Dropdowns for taxonomies
+  $(this).siblings(".navbar-dropdown-menu").slideToggle( "fast", function() {});
+});
+
 // Find all YouTube videos
 //var $allVideos = $("iframe[src^='//player.vimeo.com']").
   var $allVideos = $('.vimeo');

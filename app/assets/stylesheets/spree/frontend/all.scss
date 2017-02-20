@@ -237,6 +237,17 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
   background-color: #f4f4f4;
 }
 
+.navbar-dropdown-menu {
+  display: none;
+  margin-left: 14px !important;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.navbar-dropdown-menu a {
+  color: #666;
+}
+
 @media only screen and (max-width:767px) { /* Override Neuer template class  */
   .hide-top-nav-bar-desktop { /* New class, but it hides a Solidus classs. */
     display: none;
