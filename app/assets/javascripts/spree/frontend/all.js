@@ -18,15 +18,7 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
-// WORKAROUND - If Chrome or Firefox and on mobile or small tablet
-var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-var screensize = $(window).width()
-if (screensize < 769) {
-  if (isChrome == true || isFirefox) {
-    document.getElementById("content").className = "columns eleven omega";
-  }
-}
+
 
 $(".btn-buy-online").click(function(){
     $(".buy-online-section").slideDown( "slow", function() {});
@@ -64,6 +56,20 @@ $allVideos.each(function() {
     $(this).height(height);
     $(".cbp-item-wrap").height(height + 100);
     $(".cbp-item-wrap").width(box_width);
+});
+
+// When the window is resized
+$(window).resize(function() {
+
+  var $allVideos = $('.vimeo');
+  var newWidth = $(".cbp-item-wrap").width();
+  var newHeight = newWidth * 1.7777777
+
+  // Resize all videos according to their own aspect ratio
+  $allVideos.each(function() {
+    $(this).width(newWidth);
+    $(this).height(newHeight);
+  });
 });
 
 !function (a) {
