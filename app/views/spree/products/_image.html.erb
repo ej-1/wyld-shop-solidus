@@ -3,4 +3,4 @@
 <% else %>
   <%= image_tag @product.display_image.attachment(:product), itemprop: "image" %>
 <% end %>-->
-<iframe class="vimeo"src="https://player.vimeo.com/video/201673190" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe class="vimeo"src="<%= product.video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

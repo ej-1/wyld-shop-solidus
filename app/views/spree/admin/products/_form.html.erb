@@ -11,6 +11,14 @@
         <% end %>
       </div>
 
+      <div data-hook="">
+        <%= f.field_container :video_url do %>
+          <%= f.label :video_url, class: 'required' %>
+          <%= f.text_field :video_url, :class => 'fullwidth title', :required => true %>
+          <%= f.error_message_on :video_url %>
+        <% end %>
+      </div>
+
       <div data-hook="admin_product_form_slug">
         <%= f.field_container :slug do %>
           <%= f.label :slug, class: 'required' %>

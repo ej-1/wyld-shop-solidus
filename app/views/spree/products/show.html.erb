@@ -21,7 +21,7 @@
 
               <div id="product-images" data-hook="product_images">
                 <div id="main-image" data-hook>
-                  <%= render :partial => 'spree/products/image' %>
+                  <%= render :partial => 'spree/products/image', :locals => {product: @product } %>
                 </div>
                 <!--<div id="thumbnails" data-hook>
                   <%= render :partial => 'spree/products/thumbnails' %>
