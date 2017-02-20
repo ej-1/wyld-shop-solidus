@@ -90,6 +90,11 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
   position: absolute;
 }
 
+.login-page {
+  max-width:200px;
+  margin-left: 20px;
+}
+
 /* Extra small devices (portrait phones, less than 576px)  */
 @media (max-width: 575px) { 
 
