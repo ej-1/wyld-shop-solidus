@@ -7,5 +7,6 @@
                                 @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon' %>
   <% end %>-->
   <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search) %>
-  <%= submit_tag Spree.t(:search), :name => nil %>
+  <!--<%= submit_tag Spree.t(:search), :name => nil %>-->
+  <%= submit_tag Spree.t(:search), :name => nil, :class => 'jetblack-btn' %>
 <% end %>

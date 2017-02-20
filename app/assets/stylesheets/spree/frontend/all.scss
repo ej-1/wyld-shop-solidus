@@ -90,9 +90,13 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
   position: absolute;
 }
 
-.login-page {
+.login-page { /* Overriding Solidus after putting in override for all links. */
   max-width:200px;
   margin-left: 20px;
+}
+
+#link-to-login a {
+  font-size: 16px !important;
 }
 
 /* Extra small devices (portrait phones, less than 576px)  */
@@ -251,6 +255,32 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
 
 .navbar-dropdown-menu a {
   color: #666;
+}
+
+.jetblack-btn { /* Code copied from (.cbp-l-project-details .btn) Neuer template class  */
+    font: 400 12px/17px "Open Sans Condensed", sans-serif !important;
+    padding: 7px 15px !important;
+    border-radius: 0 !important;
+    background: #1f1f1f !important;
+    transition: .3s !important;
+    border-radius: solid 0px #222 !important;
+}
+
+.jetblack-btn:hover { /* Code copied from (.cbp-l-project-details .btn) Neuer template class  */
+    color: #fff;
+    background: #222;
+}
+
+a { /* Override all links  */
+  color: #666;
+  font-weight: 100 !important;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a:hover { /* Override all links  */
+  color: #222;
+  font-weight: none;
+  text-decoration: none;
 }
 
 @media only screen and (max-width:767px) { /* Override Neuer template class  */
