@@ -233,6 +233,10 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.sales-page-logo:hover {
+  background-color: #f4f4f4;
+}
+
 @media only screen and (max-width:767px) { /* Override Neuer template class  */
   .hide-top-nav-bar-desktop { /* New class, but it hides a Solidus classs. */
     display: none;
