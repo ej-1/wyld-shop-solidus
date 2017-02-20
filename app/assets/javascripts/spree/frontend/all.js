@@ -48,15 +48,26 @@ $(".taxonomy-name-drop").click(function(){ // Dropdowns for taxonomies
   // The element that is fluid width
   fluidEl = $("body");
   var box_width = $(".cbp-item-wrap").width() - 20;
+  var height = box_width * 1.7777777
 
-// Figure out and save aspect ratio for each video
-$allVideos.each(function() {
-    var height = box_width * 1.7777777
-    $(this).width(box_width);
-    $(this).height(height);
-    $(".cbp-item-wrap").height(height + 100);
-    $(".cbp-item-wrap").width(box_width);
-});
+if ($( window ).width() > 1280) {
+  // Figure out and save aspect ratio for each video
+  $allVideos.each(function() {
+      var box_width = $(".cbp-item-wrap").width() - 100;
+      var height = box_width * 1.7777777
+      $(this).width(box_width);
+      $(this).height(height);
+
+  });
+} else {
+  // Figure out and save aspect ratio for each video
+  $allVideos.each(function() {
+      $(this).width(box_width);
+      $(this).height(height);
+      $(".cbp-item-wrap").height(height + 100);
+      $(".cbp-item-wrap").width(box_width);
+  });
+}
 
 // When the window is resized
 $(window).resize(function() {
