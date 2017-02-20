@@ -47,7 +47,7 @@ $(".taxonomy-name-drop").click(function(){ // Dropdowns for taxonomies
     //alert($allVideos)
   // The element that is fluid width
   fluidEl = $("body");
-  var box_width = $(".cbp-item-wrap").width() - 20;
+  var box_width = $(".cbp-item-wrap").width() - 50;
   var height = box_width * 1.7777777
 
 if ($( window ).width() > 1280) {
