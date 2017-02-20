@@ -97,6 +97,10 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
     display: none;
   }
 
+  .cbp-item-wrap { 
+    margin: auto !important;
+  }
+
 }
 
 /* Small devices (landscape phones, 576px and up)  */
@@ -104,6 +108,10 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
 
   #logo { 
     display: none;
+  }
+
+  .cbp-item-wrap { 
+    margin: auto !important;
   }
 
 }
