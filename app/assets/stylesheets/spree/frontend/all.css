@@ -22,6 +22,8 @@
 
 /*------------------------------------------------------------------*/
 
+
+
 body {  /* Override Neuer template class  */
   margin-bottom: 0px !important;  /* Fix for footer that floated above bottom and to the right  */
 }
@@ -98,6 +100,8 @@ nav #main-nav-bar { /* Changed so the screen wide flash notice does not disrupt 
 
 #link-to-login a {
   font-size: 16px !important;
+  color: red;
+  font-weight:bold;
 }
 
 /* Extra small devices (portrait phones, less than 576px)  */
