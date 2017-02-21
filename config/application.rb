@@ -12,7 +12,7 @@ module WyldShopSolidus
   class Application < Rails::Application
     config.assets.initialize_on_precompile = false
     config.assets.precompile += %w( all.scss )
-    config.assets.paths << Rails.root.join("assets", "stylesheets", "spree", "frontend", "all")
+    config.assets.paths << Rails.root.join("assets", "stylesheets", "spree", "frontend")
 
     config.to_prepare do
       # Load application's model / class decorators
